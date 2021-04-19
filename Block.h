@@ -6,7 +6,7 @@ using namespace std;
 class Block {
 public:
   string sPrevHash;
-  Block(uint32_t nIndexIn, const sting &sDataIn);
+  Block(uint32_t nIndexIn, const string &sDataIn);
   string GetHash();
   void MineBlock(uint32_t nDifficulty);
 
@@ -16,5 +16,5 @@ private:
   string _sData;
   string _sHash;
   time_t _tTime;
-  const string _CalculateHash();
-}
+  string _CalculateHash() const;
+};

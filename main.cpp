@@ -3,7 +3,7 @@
 #include <sstream>
 
 int main() {
-  Blockchain bChain = Blockchain();
+  Blockchain bChain = Blockchain(5);
 
   cout << "Mining block 1..." << endl;
   bChain.AddBlock(Block(1, "Block 1 Data"));

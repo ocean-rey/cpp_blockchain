@@ -6,7 +6,7 @@ using namespace std;
 
 class Blockchain {
 public:
-  Blockchain();
+  Blockchain(int difficulty);
   void AddBlock(Block bNew);
 
 private:

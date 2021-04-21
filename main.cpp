@@ -3,16 +3,12 @@
 #include <sstream>
 
 int main() {
-  Blockchain bChain = Blockchain(5);
-
-  cout << "Mining block 1..." << endl;
-  bChain.AddBlock(Block(1, "Block 1 Data"));
-
-  cout << "Mining block 2..." << endl;
-  bChain.AddBlock(Block(2, "Block 2 Data"));
-
-  cout << "Mining block 3..." << endl;
-  bChain.AddBlock(Block(3, "Block 3 Data"));
-
+  Blockchain bChain = Blockchain(1);
+  int i = 2;
+  do {
+    bChain.AddBlock(Block(i, "some data"));
+    bChain.IncDiff();
+    i++;
+  } while (true);
   return 0;
 }

@@ -8,6 +8,7 @@ class Blockchain {
 public:
   Blockchain(int difficulty);
   void AddBlock(Block bNew);
+  void IncDiff();
 
 private:
   uint32_t _nDifficulty;

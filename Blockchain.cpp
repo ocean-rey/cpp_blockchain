@@ -11,4 +11,6 @@ void Blockchain::AddBlock(Block bNew) {
   _vChain.push_back(bNew);
 }
 
+void Blockchain::IncDiff() { _nDifficulty++; }
+
 Block Blockchain::_GetLastBlock() const { return _vChain.back(); }

@@ -26,6 +26,7 @@ void Block::MineBlock(uint32_t nDifficulty) {
     _nNonce++;
     _sHash = _CalculateHash();
   } while (_sHash.substr(0, nDifficulty) != str);
+  cout << "Block mined:\t" << _sHash << endl;
   auto stop = high_resolution_clock::now();             // init stop
   auto duration = duration_cast<seconds>(stop - start); // init duration
   auto time = duration.count();    // get duration in seconds

@@ -17,6 +17,7 @@ void Block::MineBlock(uint32_t nDifficulty) {
   // init timer here
   auto start = high_resolution_clock::now();
   char cstr[nDifficulty + 1];
+  float khs = 0;
   for (uint32_t i = 0; i < nDifficulty; ++i) {
     cstr[i] = '0';
   }
@@ -27,12 +28,14 @@ void Block::MineBlock(uint32_t nDifficulty) {
     _sHash = _CalculateHash();
   } while (_sHash.substr(0, nDifficulty) != str);
   cout << "Block mined:\t" << _sHash << endl;
-  auto stop = high_resolution_clock::now();             // init stop
-  auto duration = duration_cast<seconds>(stop - start); // init duration
-  auto time = duration.count();    // get duration in seconds
+  auto stop = high_resolution_clock::now();                  // init stop
+  auto duration = duration_cast<microseconds>(stop - start); // init duration
+  auto time = duration.count();    // get duration in microseconds
   float kilohash = _nNonce / 1000; // calculate kH/s
   cout << "Difficulty:\t" << nDifficulty << endl;
-  float khs = (kilohash / time);
+  cout << time << endl;
+  khs = (kilohash / time) *
+        1000000; // mutliply by 10^6 to convert from kH/microseconds to kH/s
   cout << "kH/s:\t" << khs << endl;
 }
 
